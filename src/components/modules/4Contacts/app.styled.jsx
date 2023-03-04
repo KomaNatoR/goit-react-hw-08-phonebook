@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
 export const MainDiv = styled.div`
+    // position: relative;
+
     width: 461px;
     margin-left: auto;
     margin-right: auto;
@@ -11,6 +13,9 @@ export const MainDiv = styled.div`
     border-radius: 8px;
     color: darkolivegreen;
 
+    h1 {
+        margin-top: 0px;
+    }
     h2 {
         text-align: center;
     }
@@ -39,6 +44,9 @@ export const MainDiv = styled.div`
             scale: 0.9;
         }    
     }
+    // form input {
+    //     border-radius: 3px;
+    // }
     form button {
         margin-top: 10px;
     }

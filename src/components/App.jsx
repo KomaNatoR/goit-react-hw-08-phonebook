@@ -1,19 +1,16 @@
-import FormikForm from "./Form";
-import Filter from "./Filter";
-import ContactList from "./ContactList";
-import { MainDiv } from "./app.styled";
+
+
+import Menu from "./modules/1Menu/Menu";
+import UserRoutes from "./UserRoutes";
 
 export const App = () => {
 
   return (
-    <MainDiv>
-      <h1>Phonebook</h1>
-      <FormikForm/>
+    <>
+      <Menu />
       
-      <h2>Contacts</h2>
-      <Filter/>
-      <ContactList/>
-    </MainDiv>
+      <UserRoutes />
+    </>
   );
 };
 
