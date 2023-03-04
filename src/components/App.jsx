@@ -1,16 +1,20 @@
+import FormikForm from "./Form";
+import Filter from "./Filter";
+import ContactList from "./ContactList";
+import { MainDiv } from "./app.styled";
+
 export const App = () => {
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <MainDiv>
+      <h1>Phonebook</h1>
+      <FormikForm/>
+      
+      <h2>Contacts</h2>
+      <Filter/>
+      <ContactList/>
+    </MainDiv>
   );
 };
+
+
