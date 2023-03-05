@@ -1,6 +1,6 @@
 
 
-import Menu from "./modules/1Menu/Menu";
+import Menu from "./modules/Menu/Menu";
 import UserRoutes from "./UserRoutes";
 
 export const App = () => {

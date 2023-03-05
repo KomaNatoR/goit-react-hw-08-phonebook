@@ -4,9 +4,9 @@ import { MenuMainDiv } from "./menu.styled";
 import { items } from "./items";
 
 const Menu = () => {
-    const ele = items.map(({ id, to, text }) => (
+    const ele = items.map(({ id, path, text }) => (
         <li key={id}>
-            <NavLink to={to}>{text}</NavLink>
+            <NavLink to={path}>{text}</NavLink>
         </li>)
     );
 
