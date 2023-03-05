@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/234.6789c000.chunk.js","mappings":"0JAOA,UALiB,WACb,OACI,gDAEP,C","sources":["components/modules/Register/Register.jsx"],"sourcesContent":["\n\nconst Register = () => {\n    return (\n        <div>Hello I'm Register!</div>\n    )\n};\nexport default Register;"],"names":[],"sourceRoot":""}
