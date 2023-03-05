@@ -1,8 +1,8 @@
-
+import { LoginMainDiv } from "./login.styled";
 
 const Login = () => {
     return (
-        <div>Hello I'm Login!</div>
+        <LoginMainDiv>Hello I'm Login!</LoginMainDiv>
     )
 };
 export default Login;

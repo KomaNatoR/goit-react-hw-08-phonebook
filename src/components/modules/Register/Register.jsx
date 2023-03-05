@@ -1,8 +1,8 @@
-
+import { RegisterMainDiv } from "./register.styled";
 
 const Register = () => {
     return (
-        <div>Hello I'm Register!</div>
+        <RegisterMainDiv>Hello I'm Register!</RegisterMainDiv>
     )
 };
 export default Register;
