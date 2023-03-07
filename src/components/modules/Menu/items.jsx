@@ -11,14 +11,14 @@ export const items = [
         path: "/contacts",
         text: "Contacts",
     },
-    {
-        id: nanoid(),
-        path: "/register",
-        text: "Register",
-    },
-    {
-        id: nanoid(),
-        path: "/login",
-        text: "Login",
-    },
+    // {
+    //     id: nanoid(),
+    //     path: "/register",
+    //     text: "Register",
+    // },
+    // {
+    //     id: nanoid(),
+    //     path: "/login",
+    //     text: "Login",
+    // },
 ];

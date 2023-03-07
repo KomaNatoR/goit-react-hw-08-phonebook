@@ -12,7 +12,7 @@ const Login = lazy(() => import("./modules/Login/Login"));
 
 const UserRoutes = () => {
     return (
-        <Suspense fallback={<p>...loading</p>}>
+        <Suspense fallback={<p style={{ textAlign: "center", }}>...loading</p>}>
             <Routes>
                 <Route path="/" element={<MainPage/>} />
                 <Route path="/contacts" element={<Contacts/>} />
