@@ -1,25 +1,30 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { signUp } from "components/redux/auth/auth-operation";
+import { isUserLoading } from "components/redux/selectors";
+import { Navigate } from "react-router-dom";
 
 import { RegisterMainDiv } from "./register.styled";
-import { signUp } from "components/redux/auth/auth-operation";
 
 import { Formik, Form } from 'formik';
-import TextField from "components/shared/TextField/TextField";
-import Button from "components/shared/Button/Button";
 import { initialValues } from "./initialValues";
-import { fields } from "./fields";
+import { fields } from "./fields"
+import TextField from "components/shared/TextField/TextField";
+import Button from "components/shared/Button/Button";;
 // const { name, email, password } = initialValues;
 
 const Register = () => {
+    const isLogin = useSelector(isUserLoading);
     const dispatch = useDispatch();
 
     const onSubmitSignup = ({ name, email, password }, actions) => {
-        let personData = {name,email,password};
+        let personData = { name, email, password };
         console.log(personData);
 
         dispatch(signUp(personData));
         actions.resetForm();
-    }
+    };
+
+    if (isLogin) return <Navigate to={"/contacts"} />;
 
     return (
         <RegisterMainDiv>

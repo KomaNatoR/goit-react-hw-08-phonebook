@@ -6,3 +6,6 @@ export const getFilteredContacts = ({ contacts, filter }) => {
     const visiblePersons = contacts.items.filter(cont => cont.name.toLowerCase().includes(normalizeFilter));
     return visiblePersons;
 };
+
+export const isUserLoading = store => store.auth.isLogin;
+export const getUser = store => store.auth.user;

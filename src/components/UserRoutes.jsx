@@ -7,8 +7,8 @@ import { lazy, Suspense } from "react";
 
 const MainPage = lazy(() => import("./modules/MainPage/MainPage"));
 const Contacts = lazy(() => import("./modules/Contacts/Contacts"));
-const Register = lazy(() => import("./modules/Register/Register"));
-const Login = lazy(() => import("./modules/Login/Login"));
+const Register = lazy(() => import("./modules/NavbarAuth/Register/Register"));
+const Login = lazy(() => import("./modules/NavbarAuth/Login/Login"));
 
 const UserRoutes = () => {
     return (

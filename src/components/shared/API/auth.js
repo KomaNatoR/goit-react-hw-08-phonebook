@@ -5,7 +5,13 @@ const instance = axios.create({
 });
 
 export const signUp = async (signData) => {
-    // console.log(signData);
-    const { data } = await instance.post("/users/signup", signData);
-    return data;
-}
+  // console.log(signData);
+  const { data } = await instance.post("/users/signup", signData);
+  return data;
+};
+
+export const logIn = async (signData) => {
+  // console.log(signData);
+  const { data } = await instance.post("/users/login", signData);
+  return data;
+};

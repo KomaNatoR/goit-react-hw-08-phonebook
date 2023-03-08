@@ -1,7 +1,12 @@
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { isUserLoading } from "components/redux/selectors";
 
 import { MenuMainDiv } from "./menu.styled";
 import { items } from "./items";
+
+import NavbarAuth from "../NavbarAuth/NavbarAuth";
+import NavbarUser from "../NavbarUser/NavbarUser";
 
 const Menu = () => {
     const ele = items.map(({ id, path, text }) => (
@@ -9,17 +14,15 @@ const Menu = () => {
             <NavLink to={path}>{text}</NavLink>
         </li>)
     );
+    const isLogin = useSelector(isUserLoading);
+    console.log(isLogin);
 
     return (
         <MenuMainDiv>
             <ul>
                 {ele}
-                <li>
-                    <NavLink to={"/register"}>Register</NavLink>
-                </li>
-                <li>
-                    <NavLink to={"/login"}>Login</NavLink>
-                </li>
+                {!isLogin && <NavbarAuth />}
+                {isLogin && <NavbarUser />}
             </ul>
         </MenuMainDiv>
     )
