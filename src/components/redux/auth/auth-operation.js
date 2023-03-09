@@ -9,7 +9,12 @@ export const signUp = createAsyncThunk(
             // console.log(data);
             const result = await api.signUp(data);
             return result;
-        } catch (error) {
+        } catch ({response}) {
+            const { status, statusText } = response;
+            const error = {
+                status,
+                statusText,
+            }
             return thunkAPI.rejectWithValue(error);
         } 
     }
@@ -25,5 +30,27 @@ export const logIn = createAsyncThunk(
         } catch (error) {
             return thunkAPI.rejectWithValue(error);
         } 
+    }
+);
+
+export const currentUser = createAsyncThunk(
+    "auth/current",
+    async (_, {rejectWithValue, getState}) => {
+        try {
+            const { auth } = getState();
+            const data = await api.getCurrentUser(auth.token);
+            console.log("token-",auth.token);
+            return data;
+        } catch (error) {
+            return rejectWithValue(error);
+        } 
+    },
+    {
+        condition: (_, { getState }) => {
+            const { auth } = getState();
+            if (!auth.token) {
+                return false;
+            }
+        }
     }
 );

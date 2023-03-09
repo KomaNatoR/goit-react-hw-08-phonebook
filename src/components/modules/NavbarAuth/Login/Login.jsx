@@ -17,7 +17,7 @@ const Login = () => {
 
     const onSubmitLogin = ({ email, password }, actions) => {
         let personData = { email, password };
-        console.log(personData);
+        console.log("Login-",personData);
 
         dispatch(logIn(personData));
         actions.resetForm();
@@ -27,7 +27,7 @@ const Login = () => {
 
     return (
         <LoginMainDiv>
-            <h2>Register Page</h2>
+            <h2>Login Page</h2>
 
             <Formik onSubmit={onSubmitLogin} initialValues={initialValues}>
                 <Form >

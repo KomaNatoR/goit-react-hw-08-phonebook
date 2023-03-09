@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { signUp } from "components/redux/auth/auth-operation";
-import { isUserLoading } from "components/redux/selectors";
+import { isUserLoading, getAuthError } from "components/redux/selectors";
 import { Navigate } from "react-router-dom";
 
 import { RegisterMainDiv } from "./register.styled";
@@ -14,6 +14,7 @@ import Button from "components/shared/Button/Button";;
 
 const Register = () => {
     const isLogin = useSelector(isUserLoading);
+    const {status, statusText} = useSelector(getAuthError);
     const dispatch = useDispatch();
 
     const onSubmitSignup = ({ name, email, password }, actions) => {
@@ -29,6 +30,7 @@ const Register = () => {
     return (
         <RegisterMainDiv>
             <h2>Register Page</h2>
+            {status && <p style={{color:"red"}}>{statusText}</p>}
 
             <Formik onSubmit={onSubmitSignup} initialValues={initialValues}>
                 <Form >

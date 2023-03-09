@@ -15,7 +15,7 @@ const Menu = () => {
         </li>)
     );
     const isLogin = useSelector(isUserLoading);
-    console.log(isLogin);
+    // console.log(isLogin);
 
     return (
         <MenuMainDiv>

@@ -5,7 +5,7 @@ export const RegisterMainDiv = styled.div`
     // height: 461px;
     margin-left: auto;
     margin-right: auto;
-    padding: 20px 20px 10px 20px;
+    padding: 20px 20px 20px 20px;
 
     text-align: end;
     border: 3px solid darkolivegreen;
