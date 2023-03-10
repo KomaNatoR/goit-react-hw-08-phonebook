@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { signUp, logIn, currentUser } from "./auth-operation";
+import { signUp, logIn, currentUser, logOutUser } from "./auth-operation";
 
 const initialState = {
     user: {},
@@ -29,17 +29,27 @@ const authSlice = createSlice({
                 store.user = payload.user;
                 store.token = payload.token;
                 store.isLogin = true;
+                // console.log("slice-logIn.fulfilled=",payload);
             })
             .addCase(logIn.rejected, (store, { payload }) => { store.loading = false; store.error = payload; })
             .addCase(currentUser.pending, (store) => { store.loading = true; store.error = null; })
             .addCase(currentUser.fulfilled, (store, { payload }) => {
-                console.log("slice-",payload.user);
                 store.loading = false;
-                store.user = payload.user;
-                store.token = payload.token;
+                store.user = payload;
+                // store.token = payload.token;
                 store.isLogin = true;
+                // console.log("slice-payload",payload);
             })
             .addCase(currentUser.rejected, (store, { payload }) => { store.loading = false; store.error = payload; })
+            .addCase(logOutUser.pending, (store) => { store.loading = true; store.error = null; })
+            .addCase(logOutUser.fulfilled, (store) => {
+                store.loading = false;
+                store.user = {};
+                store.token = "";
+                store.isLogin = false;
+                // console.log("slice-payload",payload);
+            })
+            .addCase(logOutUser.rejected, (store, { payload }) => { store.loading = false; store.error = payload; })
     }
     // {
     //     [signUp.pending]: (store) => { store.loading = true; store.error = null; },

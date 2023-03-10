@@ -15,7 +15,7 @@ export const signUp = createAsyncThunk(
                 status,
                 statusText,
             }
-            return thunkAPI.rejectWithValue(error);
+            return thunkAPI.rejectWithValue(error.response);
         } 
     }
 );
@@ -28,7 +28,7 @@ export const logIn = createAsyncThunk(
             const result = await api.logIn(data);
             return result;
         } catch (error) {
-            return thunkAPI.rejectWithValue(error);
+            return thunkAPI.rejectWithValue(error.response);
         } 
     }
 );
@@ -39,18 +39,30 @@ export const currentUser = createAsyncThunk(
         try {
             const { auth } = getState();
             const data = await api.getCurrentUser(auth.token);
-            console.log("token-",auth.token);
+            // console.log("token-",auth.token);
             return data;
         } catch (error) {
-            return rejectWithValue(error);
+            return rejectWithValue(error.response);
         } 
     },
-    {
-        condition: (_, { getState }) => {
-            const { auth } = getState();
-            if (!auth.token) {
-                return false;
-            }
-        }
-    }
+    // {
+    //     condition: (_, { getState }) => {
+    //         const { auth } = getState();
+    //         if (!auth.token) {
+    //             return false;
+    //         }
+    //     }
+    // }
+);
+
+export const logOutUser = createAsyncThunk(
+    "auth/logout",
+    async (_, {rejectWithValue}) => {
+        try {
+            const data = await api.logOut();
+            return data;
+        } catch (error) {
+            return rejectWithValue(error.response);
+        } 
+    },
 );

@@ -35,4 +35,10 @@ export const getCurrentUser = async (token) => {
   }
 };
 
+export const logOut = async (token) => {
+  const { data } = await instance.post("/users/logout");
+  setToken();
+  return data;
+};
+
 export default instance;
