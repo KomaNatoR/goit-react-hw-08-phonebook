@@ -6,7 +6,6 @@ export const signUp = createAsyncThunk(
     "auth/signup",
     async (data, thunkAPI) => {
         try {
-            // console.log(data);
             const result = await api.signUp(data);
             return result;
         } catch ({response}) {
@@ -24,7 +23,7 @@ export const logIn = createAsyncThunk(
     "auth/login",
     async (data, thunkAPI) => {
         try {
-            // console.log(data);
+            // console.log("thunkAPI",thunkAPI);
             const result = await api.logIn(data);
             return result;
         } catch (error) {
@@ -38,22 +37,14 @@ export const currentUser = createAsyncThunk(
     async (_, {rejectWithValue, getState}) => {
         try {
             const { auth } = getState();
+            // console.log("token-", auth.token);
+            if(auth.token==="") return rejectWithValue("Sorry no token!");
             const data = await api.getCurrentUser(auth.token);
-            // console.log("token-",auth.token);
             return data;
         } catch (error) {
-            console.log("Error-OPERATION!!!",error);
             return rejectWithValue(error.response);
         } 
     },
-    // {
-    //     condition: (_, { getState }) => {
-    //         const { auth } = getState();
-    //         if (!auth.token) {
-    //             return false;
-    //         }
-    //     }
-    // }
 );
 
 export const logOutUser = createAsyncThunk(

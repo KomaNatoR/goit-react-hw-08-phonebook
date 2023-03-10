@@ -30,7 +30,7 @@ export const getCurrentUser = async (token) => {
     // console.log("getCurrentUser",data);
     return data;
   } catch (error) {
-    console.log("Error-API!!!",error);
+    // console.log("Error-API!!!",error);
     setToken();
     throw error;
   }
