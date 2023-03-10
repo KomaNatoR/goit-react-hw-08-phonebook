@@ -40,7 +40,7 @@ const authSlice = createSlice({
                 store.isLogin = true;
                 // console.log("slice-payload",payload);
             })
-            .addCase(currentUser.rejected, (store, { payload }) => { store.loading = false; store.error = payload; })
+            .addCase(currentUser.rejected, (store, { payload }) => { store.loading = false; store.error = payload; store.token = ""; console.log("Error-SLICE-payload!!!",payload); })
             .addCase(logOutUser.pending, (store) => { store.loading = true; store.error = null; })
             .addCase(logOutUser.fulfilled, (store) => {
                 store.loading = false;

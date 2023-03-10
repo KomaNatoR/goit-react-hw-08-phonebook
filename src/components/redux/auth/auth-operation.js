@@ -42,6 +42,7 @@ export const currentUser = createAsyncThunk(
             // console.log("token-",auth.token);
             return data;
         } catch (error) {
+            console.log("Error-OPERATION!!!",error);
             return rejectWithValue(error.response);
         } 
     },

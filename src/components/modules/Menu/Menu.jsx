@@ -9,12 +9,15 @@ import NavbarAuth from "../NavbarAuth/NavbarAuth";
 import NavbarUser from "../NavbarUser/NavbarUser";
 
 const Menu = () => {
-    const ele = items.map(({ id, path, text }) => (
+    const isLogin = useSelector(isUserLogin);
+    const filtredPrivateRoutes = !isLogin ? items.filter(item =>!item.private) : items;
+    
+
+    const ele = filtredPrivateRoutes.map(({ id, path, text }) => (
         <li key={id}>
             <NavLink to={path}>{text}</NavLink>
         </li>)
     );
-    const isLogin = useSelector(isUserLogin);
     // console.log(isLogin);
 
     return (

@@ -5,11 +5,13 @@ export const items = [
         id: nanoid(),
         path: "/",
         text: "Menu",
+        private: false,
     },
     {
         id: nanoid(),
         path: "/contacts",
         text: "Contacts",
+        private: true,
     },
     // {
     //     id: nanoid(),

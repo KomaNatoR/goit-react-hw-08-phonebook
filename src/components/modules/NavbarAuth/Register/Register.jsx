@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { signUp } from "components/redux/auth/auth-operation";
-import { isUserLogin, getAuthError } from "components/redux/selectors";
-import { Navigate } from "react-router-dom";
+// import { getAuthError } from "components/redux/selectors";
 
 import { RegisterMainDiv } from "./register.styled";
 
@@ -9,12 +9,11 @@ import { Formik, Form } from 'formik';
 import { initialValues } from "./initialValues";
 import { fields } from "./fields"
 import TextField from "components/shared/TextField/TextField";
-import Button from "components/shared/Button/Button";;
-// const { name, email, password } = initialValues;
+import Button from "components/shared/Button/Button";
 
 const Register = () => {
-    const isLogin = useSelector(isUserLogin);
-    const {status, statusText} = useSelector(getAuthError);
+    // const { status, statusText } = useSelector(getAuthError);
+    // const errorMessage = useSelector(store => console.log(store.auth.error.data.message));
     const dispatch = useDispatch();
 
     const onSubmitSignup = ({ name, email, password }, actions) => {
@@ -25,12 +24,10 @@ const Register = () => {
         actions.resetForm();
     };
 
-    if (isLogin) return <Navigate to={"/contacts"} />;
-
     return (
         <RegisterMainDiv>
             <h2>Register Page</h2>
-            {status && <p style={{color:"red"}}>{statusText}</p>}
+            {/* {errorMessage && <p style={{color:"red"}}>{errorMessage}</p>} */}
 
             <Formik onSubmit={onSubmitSignup} initialValues={initialValues}>
                 <Form >
