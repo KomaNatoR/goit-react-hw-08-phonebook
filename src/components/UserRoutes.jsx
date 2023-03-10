@@ -6,6 +6,7 @@ import { lazy, Suspense } from "react";
 // import Contacts from "./modules/4Contacts/Contacts";
 
 import PrivateRoute from "./modules/PrivateRoute/PrivateRoute";
+import PublicRoute from "./modules/PublicRoute/PublicRoute";
 
 const MainPage = lazy(() => import("./modules/MainPage/MainPage"));
 const Contacts = lazy(() => import("./modules/Contacts/Contacts"));
@@ -21,8 +22,10 @@ const UserRoutes = () => {
                 <Route element={<PrivateRoute />}>
                     <Route path="/contacts" element={<Contacts/>} />
                 </Route>
-                <Route path="/register" element={<Register/>} />
-                <Route path="/login" element={<Login/>} />
+                <Route element={<PublicRoute />}>
+                    <Route path="/register" element={<Register/>} />
+                    <Route path="/login" element={<Login/>} />
+                </Route>
                 <Route path="/logout" element={<LogOut/>} />
             </Routes>
         </Suspense>

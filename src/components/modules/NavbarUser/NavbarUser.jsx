@@ -9,7 +9,7 @@ const NavbarUser = () => {
     const { name = "No data" } = useSelector(getUser);
     
     const onLogOut = () => {
-        console.log("Hello!");
+        console.log("Logout Click!");
         dispatch(logOutUser());
     };
 

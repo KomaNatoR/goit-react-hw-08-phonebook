@@ -17,7 +17,7 @@ const Login = () => {
 
     const onSubmitLogin = ({ email, password }, actions) => {
         let personData = { email, password };
-        console.log("Login-",personData);
+        console.log("LoginData:",personData);
 
         dispatch(logIn(personData));
         actions.resetForm();
