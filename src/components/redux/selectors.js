@@ -7,6 +7,6 @@ export const getFilteredContacts = ({ contacts, filter }) => {
     return visiblePersons;
 };
 
-export const isUserLoading = store => store.auth.isLogin;
+export const isUserLogin = store => store.auth.isLogin;
 export const getAuthError = store => store.auth.error || {};
 export const getUser = store => store.auth.user;

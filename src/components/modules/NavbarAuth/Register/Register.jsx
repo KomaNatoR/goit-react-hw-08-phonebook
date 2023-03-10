@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { signUp } from "components/redux/auth/auth-operation";
-import { isUserLoading, getAuthError } from "components/redux/selectors";
+import { isUserLogin, getAuthError } from "components/redux/selectors";
 import { Navigate } from "react-router-dom";
 
 import { RegisterMainDiv } from "./register.styled";
@@ -13,7 +13,7 @@ import Button from "components/shared/Button/Button";;
 // const { name, email, password } = initialValues;
 
 const Register = () => {
-    const isLogin = useSelector(isUserLoading);
+    const isLogin = useSelector(isUserLogin);
     const {status, statusText} = useSelector(getAuthError);
     const dispatch = useDispatch();
 

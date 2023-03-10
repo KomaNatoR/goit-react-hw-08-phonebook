@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { isUserLoading } from "components/redux/selectors";
+import { isUserLogin } from "components/redux/selectors";
 
 import { MenuMainDiv } from "./menu.styled";
 import { items } from "./items";
@@ -14,7 +14,7 @@ const Menu = () => {
             <NavLink to={path}>{text}</NavLink>
         </li>)
     );
-    const isLogin = useSelector(isUserLoading);
+    const isLogin = useSelector(isUserLogin);
     // console.log(isLogin);
 
     return (

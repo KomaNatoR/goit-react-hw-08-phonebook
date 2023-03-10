@@ -8,14 +8,14 @@ import { MainDiv } from "./app.styled";
 
 const Contacts = () => {
     const userName = useSelector(store => store.auth.user.name);
-    const isLogOutPage=useSelector(store=>store.auth.token)
+    // const isLogOutPage = useSelector(store => store.auth.token);
     // console.log("isLogOutpage",isLogOutpage);
 
-    if (isLogOutPage === "") return (
-        <MainDiv>
-            <h1>Please register or login to account to see your contacts!</h1>
-        </MainDiv >
-    );
+    // if (isLogOutPage === "") return (
+    //     <MainDiv>
+    //         <h1>Please register or login to account to see your contacts!</h1>
+    //     </MainDiv >
+    // );
     return (
         <>
             <MainDiv>

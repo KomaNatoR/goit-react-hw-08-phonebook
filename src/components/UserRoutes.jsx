@@ -5,6 +5,8 @@ import { lazy, Suspense } from "react";
 // import Login from "./modules/3Login/Login";
 // import Contacts from "./modules/4Contacts/Contacts";
 
+import PrivateRoute from "./modules/PrivateRoute/PrivateRoute";
+
 const MainPage = lazy(() => import("./modules/MainPage/MainPage"));
 const Contacts = lazy(() => import("./modules/Contacts/Contacts"));
 const Register = lazy(() => import("./modules/NavbarAuth/Register/Register"));
@@ -15,8 +17,10 @@ const UserRoutes = () => {
     return (
         <Suspense fallback={<p style={{ textAlign: "center", }}>...loading</p>}>
             <Routes>
-                <Route path="/" element={<MainPage/>} />
-                <Route path="/contacts" element={<Contacts/>} />
+                <Route path="/" element={<MainPage />} />
+                <Route element={<PrivateRoute />}>
+                    <Route path="/contacts" element={<Contacts/>} />
+                </Route>
                 <Route path="/register" element={<Register/>} />
                 <Route path="/login" element={<Login/>} />
                 <Route path="/logout" element={<LogOut/>} />

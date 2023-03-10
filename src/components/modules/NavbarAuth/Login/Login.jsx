@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "components/redux/auth/auth-operation";
-import { isUserLoading } from "components/redux/selectors";
+import { isUserLogin } from "components/redux/selectors";
 import { Navigate } from "react-router-dom";
 
 import { LoginMainDiv } from "./login.styled";
@@ -12,7 +12,7 @@ import TextField from "components/shared/TextField/TextField";
 import Button from "components/shared/Button/Button";
 
 const Login = () => {
-    const isLogin = useSelector(isUserLoading);
+    const isLogin = useSelector(isUserLogin);
     const dispatch = useDispatch();
 
     const onSubmitLogin = ({ email, password }, actions) => {
