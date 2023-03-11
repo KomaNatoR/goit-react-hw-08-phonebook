@@ -13,6 +13,7 @@ const Contacts = lazy(() => import("./modules/Contacts/Contacts"));
 const Register = lazy(() => import("./modules/NavbarAuth/Register/Register"));
 const Login = lazy(() => import("./modules/NavbarAuth/Login/Login"));
 const LogOut = lazy(() => import("./modules/NavbarUser/LogOutPage/LogOutPage"));
+const ErrorPage = lazy(() => import("./modules/ErrorPage/ErrorPage"));
 
 const UserRoutes = () => {
     return (
@@ -27,6 +28,7 @@ const UserRoutes = () => {
                     <Route path="/login" element={<Login/>} />
                 </Route>
                 <Route path="/logout" element={<LogOut/>} />
+                <Route path="*" element={<ErrorPage/>} />
             </Routes>
         </Suspense>
     )

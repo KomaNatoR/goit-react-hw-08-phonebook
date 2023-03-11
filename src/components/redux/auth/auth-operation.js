@@ -9,12 +9,13 @@ export const signUp = createAsyncThunk(
             const result = await api.signUp(data);
             return result;
         } catch ({response}) {
+            // console.log("SIGN-operation-ERROR:",response);
             const { status, statusText } = response;
             const error = {
                 status,
                 statusText,
             }
-            return thunkAPI.rejectWithValue(error.response);
+            return thunkAPI.rejectWithValue(error);
         } 
     }
 );
@@ -23,11 +24,19 @@ export const logIn = createAsyncThunk(
     "auth/login",
     async (data, thunkAPI) => {
         try {
-            // console.log("thunkAPI",thunkAPI);
+            // console.log("thunkAPI",thunkAPI.getState());
+            // const { auth } = thunkAPI.getState();
+            // if(auth.token!=="Sorry no token!") return thunkAPI.rejectWithValue("Sorry no token!");
             const result = await api.logIn(data);
             return result;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.response);
+        } catch ({response}) {
+            // console.log("SIGN-operation-ERROR:",response);
+            const { status, statusText } = response;
+            const error = {
+                status,
+                statusText,
+            }
+            return thunkAPI.rejectWithValue(error);
         } 
     }
 );

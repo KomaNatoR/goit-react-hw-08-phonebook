@@ -11,18 +11,20 @@ import Button from "components/shared/Button/Button";
 
 const Login = () => {
     const dispatch = useDispatch();
+    // const loginError = useSelector(store => store.auth.error);
 
     const onSubmitLogin = ({ email, password }, actions) => {
         let personData = { email, password };
         console.log("LoginData:",personData);
 
         dispatch(logIn(personData));
-        actions.resetForm();
+        // actions.resetForm();
     };
 
     return (
         <LoginMainDiv>
             <h2>Login Page</h2>
+            {/* {loginError!=="Sorry no token!" && <p style={{color:"red"}}>Pleace input correct data!</p>} */}
 
             <Formik onSubmit={onSubmitLogin} initialValues={initialValues}>
                 <Form >

@@ -9,7 +9,7 @@ const setToken = token => {
 }
 
 export const signUp = async (signData) => {
-  // console.log(signData);
+  // console.log("signData-API:",signData);
   const { data } = await instance.post("/users/signup", signData);
   setToken(data.token);
   return data;
