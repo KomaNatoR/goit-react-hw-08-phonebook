@@ -15,6 +15,7 @@ export const signUp = createAsyncThunk(
                 status,
                 statusText,
             }
+            alert(`${statusText}`);
             return thunkAPI.rejectWithValue(error);
         } 
     }
@@ -36,6 +37,7 @@ export const logIn = createAsyncThunk(
                 status,
                 statusText,
             }
+            alert(`${statusText}`);
             return thunkAPI.rejectWithValue(error);
         } 
     }
