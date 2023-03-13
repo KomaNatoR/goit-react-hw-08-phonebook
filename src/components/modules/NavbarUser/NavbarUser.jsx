@@ -1,26 +1,29 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-import { useSelector, useDispatch } from "react-redux";
-import { getUser } from "components/redux/selectors";
-import { logOutUser } from "components/redux/auth/auth-operation";
+// import { useSelector, useDispatch } from "react-redux";
+// import { getUser } from "components/redux/selectors";
+// import { logOutUser } from "components/redux/auth/auth-operation";
 
 const NavbarUser = () => {
-    const dispatch = useDispatch();
-    const { name = "No data" } = useSelector(getUser);
+    // const dispatch = useDispatch();
+    // const { name = "No data" } = useSelector(getUser);
     
-    const onLogOut = () => {
-        console.log("Logout Click!");
-        dispatch(logOutUser());
-    };
+    // const onLogOut = () => {
+    //     console.log("Logout Click!");
+    //     dispatch(logOutUser());
+    // };
 
     return (
         <>
-            <li>
+            {/* <li>
                 <NavLink to={"/contacts"}>{name}</NavLink>
-            </li>
+            </li> */}
             <li>
-                <Link to={"/contacts"} onClick={onLogOut}>Log out</Link>
+                <NavLink to={"/profile"}>Profile</NavLink>
             </li>
+            {/* <li>
+                <Link to={"/contacts"} onClick={onLogOut}>Log out</Link>
+            </li> */}
         </>
     )
 };

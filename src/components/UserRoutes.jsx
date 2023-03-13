@@ -12,7 +12,8 @@ const MainPage = lazy(() => import("./modules/MainPage/MainPage"));
 const Contacts = lazy(() => import("./modules/Contacts/Contacts"));
 const Register = lazy(() => import("./modules/NavbarAuth/Register/Register"));
 const Login = lazy(() => import("./modules/NavbarAuth/Login/Login"));
-const LogOut = lazy(() => import("./modules/NavbarUser/LogOutPage/LogOutPage"));
+const ProfilePage = lazy(() => import("./modules/NavbarUser/ProfilePage/ProfilePage"));
+// const LogOut = lazy(() => import("./modules/NavbarUser/LogOutPage/LogOutPage"));
 const ErrorPage = lazy(() => import("./modules/ErrorPage/ErrorPage"));
 
 const UserRoutes = () => {
@@ -22,12 +23,12 @@ const UserRoutes = () => {
                 <Route path="/" element={<MainPage />} />
                 <Route element={<PrivateRoute />}>
                     <Route path="/contacts" element={<Contacts/>} />
+                    <Route path="/profile" element={<ProfilePage/>} />
                 </Route>
                 <Route element={<PublicRoute />}>
                     <Route path="/register" element={<Register/>} />
                     <Route path="/login" element={<Login/>} />
                 </Route>
-                <Route path="/logout" element={<LogOut/>} />
                 <Route path="*" element={<ErrorPage/>} />
             </Routes>
         </Suspense>
