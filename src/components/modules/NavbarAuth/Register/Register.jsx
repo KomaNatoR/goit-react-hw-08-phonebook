@@ -8,7 +8,8 @@ import { RegisterMainDiv } from "./register.styled";
 
 import { Formik, Form } from 'formik';
 import { initialValues } from "./initialValues";
-import { fields } from "./fields"
+import { fields } from "./fields";
+import { regSchema } from "./Validation/regSchema";
 import TextField from "components/shared/TextField/TextField";
 import Button from "components/shared/Button/Button";
 
@@ -39,7 +40,7 @@ const Register = () => {
             <h2>Register Page</h2>
             {/* {regError!=="Sorry no token!" && <p style={{color:"red"}}>Pleace input correct data!</p>} */}
 
-            <Formik onSubmit={onSubmitSignup} initialValues={initialValues}>
+            <Formik onSubmit={onSubmitSignup} initialValues={initialValues} validationSchema={regSchema}>
                 <Form >
                     <TextField {...fields.name} />
                     <TextField {...fields.email} />

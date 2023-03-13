@@ -5,6 +5,7 @@ import { LoginMainDiv } from "./login.styled";
 
 import { Formik, Form } from 'formik';
 import { initialValues } from "./initialValues";
+import { loginSchema } from "./Validation/loginSchema";
 import { fields } from "./fields";
 import TextField from "components/shared/TextField/TextField";
 import Button from "components/shared/Button/Button";
@@ -26,7 +27,7 @@ const Login = () => {
             <h2>Login Page</h2>
             {/* {loginError!=="Sorry no token!" && <p style={{color:"red"}}>Pleace input correct data!</p>} */}
 
-            <Formik onSubmit={onSubmitLogin} initialValues={initialValues}>
+            <Formik onSubmit={onSubmitLogin} initialValues={initialValues} validationSchema={loginSchema}>
                 <Form >
                     <TextField {...fields.email} />
                     <TextField {...fields.password} />

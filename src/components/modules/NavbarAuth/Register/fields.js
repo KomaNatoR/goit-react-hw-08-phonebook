@@ -3,7 +3,7 @@ export const fields = {
         label: "Name",
         type: "text",
         name: "name",
-        placeholder: "Name",
+        placeholder: "Name(min 3)",
         required: true,
     },
     email: {
